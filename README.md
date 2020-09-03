@@ -68,27 +68,35 @@ Markdown cheat cheet: [Hulp bij het schrijven van Markdown](https://github.com/a
 **Screenshot(s):**
 
 *Home*
+
 ![Home](images/indictus_home.png)
 
 *Services*
+
 ![Services](images/indictus_services.png)
 
 *About*
+
 ![About](images/indictus_about.png)
 
 *Contact*
+
 ![Contact](images/indictus_contact.png)
 
 *Menu*
+
 ![Menu](images/indictus_menu.png)
 
 *On ScrollUp*
+
 ![ScrollUp](images/indictus_scrollup.png)
 
 *Projecten*
+
 ![Project](images/indictus_project.png)
 
 **Breakdown-schets(en):**
 
 *About Breakdown*
+
 ![About uitgewerkt](images/about_dissect.png)
