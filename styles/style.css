@@ -7,32 +7,50 @@
 
 /* General */
 
-html {
-    font-size: 20px;
-}
-
 body {
     margin: 0;
     padding: 0;
     border: 0;
     outline: none;
+
+    font-size: 20px;
+    font-family: 'DM Sans', sans-serif;
 }
 
 a:link,
 a:visited,
-a:active {
+a:active,
+a > p {
     text-decoration: none;
     color: black;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
 }
 
+li {
+    color: white;
+}
+
+li:hover {
+    color: rgb(255, 204, 0);
+    cursor: pointer;
+}
+
+
+button {
+    padding: 0;
+    margin: 0;
+    background: none;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
 
 /* Text */
 
-H1 {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 400;
-    font-size: 200%;
-}
 
 h1 > span:nth-child(1) {
     /* needs to stick below main txt when going big */
@@ -42,36 +60,30 @@ h1 > span:nth-child(1) {
     color: rgb(255, 204, 0);
 }
 
-h1,
-h2,
-h3,
-h4 {
-    line-height: 1.2;
-}
-
-h2,
-h3,
-h4,
-p {
-    font-family: 'DM Sans', sans-serif;
+body h1,
+body h2,
+body h3,
+body h4 {
     font-weight: 400;
-    font-size: 34px;
+    line-height: 1.2em;
 }
 
-h4 {
+body h1,
+body h2 {
+    font-family: 'DM Sans', sans-serif;
+}
+
+body h1 {
+    font-size: 40px;
+}
+
+body h3 {
+    font-size: 24px;
+}
+
+body h4 {
     font-size: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
 }
-
-h2 {
-    line-height: 1.55;
-}
-
-p {
-    font-size: 18px;
-}
-
 
 /* Header */
 
@@ -84,7 +96,6 @@ section:nth-child(1) {
     display: flex;
     align-items: center;
 
-
     background-color: rgb(48, 152, 243);
     color: rgb(255, 255, 255);
 }
@@ -94,26 +105,25 @@ body > header {
     position: fixed;
 
     max-width: 100vw;
-    /* width: 100%; */
-    /* top: 0; */
     right: 0;
-    /*bottom: 0; */
     left: 0;
 
-    padding: 1.7rem 1.3rem;
-    /* background-color: none; */
+    margin: 1.7rem 1.3rem;
 }
 
 header > nav {
     display: flex;
-
     align-items: center;
     justify-content: space-between;
 }
 
+header nav a {
+    z-index: 9000;
+}
+
 nav > button {
-    background-color: rgb(48, 152, 243);
     border: none;
+    z-index: 9000;
 }
 
 button > span {
@@ -125,6 +135,43 @@ button > span {
     margin-bottom: 4px;
 }
 
+header > nav > div {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    inset: 0;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+
+    background-color: rgb(8, 44, 78);
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease 0s;
+}
+
+header > nav > div > div > div > ul > li { /* items */
+    padding-bottom: 32px;
+    font-size: 40px;
+}
+
+header > nav > div > div > div > div {
+    margin-top: 65px;
+    display: flex;
+}
+
+header > nav > div > div > div > div a{
+}
+
+header > nav > div > div > div > div a svg {
+    margin-right: 42px;
+    width: 22px; }
+
 
 /* General alignment */
 
@@ -132,7 +179,8 @@ section > div:first-child,
 section > div:nth-child(2),
 footer > div:first-child {
 
-    padding: 0 1.3rem;
+    margin: 0px auto;
+    padding: 0px 24px;
 }
 
 /* Blok B - who are we */
@@ -166,6 +214,12 @@ main > section:nth-of-type(2) > div > div > div {
     text-align: center;
 
     padding-bottom: 30px;
+
+}
+
+main > section:nth-of-type(2) > div > div > div > div > h4 {
+    text-transform: uppercase;
+    font-weight: 700;
 
 }
 
@@ -239,7 +293,7 @@ main > section:nth-of-type(3) > div > article > a > div {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url(./images/acgen.png);
+    background-image: url(/images/acgen.png);
     position: relative;
 
     height: 224px;
@@ -249,7 +303,7 @@ main > section:nth-of-type(3) > div > article > a > div {
 }
 
 main > section:nth-of-type(3) > div > article:nth-of-type(2) > a > div {
-    background-image: url(./images/paypal.png);
+    background-image: url(/images/paypal.png);
 }
 
 
@@ -274,7 +328,8 @@ main > section:nth-of-type(3) > div > article > a > p {
     padding-bottom: 20px;
 }
 
-main > section:nth-of-type(3) > div > article > a > p > svg {
+main > section:nth-of-type(3) > div > article > a > p > svg,
+main > section:nth-of-type(4) > div:nth-of-type(2) > a {
     margin-right: 10px;
 }
 
@@ -307,50 +362,485 @@ main > section:nth-of-type(4) > div {
     align-items: center;
     /* horizontaal alignment */
     justify-content: space-between;
-    /* verdeel max over flexbox */
+    /* verdeel max over flex */
     background-color: rgb(255, 204, 0);
     padding-top: 50px;
     padding-bottom: 50px;
 }
 
+
 main > section:nth-of-type(4) > div:nth-of-type(1) > div:first-child {
-    /* progress bar AGGGGGGGGGGH TBD */
+    /* progress bar wrapper */
     width: 160px;
     background-color: rgb(206, 172, 16);
     border-radius: 4px;
     height: 4px;
 
+}
+
+main > section:nth-of-type(4) > div:nth-of-type(1) > div:first-child > div {
+    height: 4px;
+    border-radius: 4px;
+
     animation-name: progressBar;
     animation-duration: 15s;
     animation-iteration-count: infinite;
-    animation: 15s linear 0s infinite normal none running;
+    animation-timing-function: linear;
 }
+
+
 
 @keyframes progressBar {
     0% {
-        background-color: rgb(206, 172, 16)
+        width: 0%;
+        background-color: white;
     }
 
     100% {
-        background-color: rgb(255, 255, 255)
+        width: 100%;
+        background-color: white;
     }
 }
 
+main > section:nth-of-type(4) > div:nth-of-type(1) > div {
+    display: flex;
+}
+
 main > section:nth-of-type(4) > div:nth-of-type(1) > div > button {
-    background: none;
+    /* L/R arrows */
+    display: flex;
     border: 0px none;
+    cursor: pointer;
 }
 
 main > section:nth-of-type(4) > div:nth-of-type(1) > div > button:nth-child(2) {
+    /* R arrow */
     transform: rotate(180deg);
 
 }
 
-main > section:nth-of-type(4) > div:nth-of-type(1) > div > button > svg:hover { /* no workies */
-  fill: red;
+main > section:nth-of-type(4) > div:nth-of-type(1) > div > button > svg:hover * {
+    fill: darkorange;
+    transition: 0.3s;
 }
+
+/* second part of section 4 - text and heading */
+
+main > section:nth-of-type(4) > div:nth-child(2) > div > p {
+    /* changing body text */
+    margin: 20px 0 30px 0;
+    font-weight: 500;
+}
+
+main > section:nth-of-type(4) > div:nth-child(2) > div > header > h1 {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+}
+
+main > section:nth-of-type(4) > div:nth-child(2) > div > header > h1 > span {
+    /* changing header element */
+    font-weight: 400;
+    color: black;
+
+}
+
+main > section:nth-of-type(4) > div:nth-child(2) > div > a {
+    display: inline-flex;
+    align-items: center;
+
+    font-size: 18px;
+    font-weight: 500;
+}
+
+main > section:nth-of-type(4) > div:nth-child(2) > div > a > svg {
+    padding-right: 10px;
+    font-weight: 500;
+}
+
+/*## SVG ##*/
+/* temp imgs*/
+
+main > section:nth-of-type(4) > div:nth-child(2) > div > header > div > img {
+    width: 100%;
+}
+
+
+
+/* ### Section 5 - Articles ### */
+
+main > section:nth-of-type(5) {
+    padding-top: 80px;
+}
+
+main > section:nth-of-type(5) > div > div > div {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+section:nth-of-type(5) > div > div > div > a {
+    padding: 20px 40px 40px;
+    /* TLDR */
+    background-color: rgb(48, 152, 243);
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+}
+
+section:nth-of-type(5) > div > div > div > a > p {
+    color: #FFFFFF;
+}
+
+section:nth-of-type(5) > div > div > div > a > div > p {
+    color: rgb(48, 152, 243);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+section:nth-of-type(5) > div > div > div > a > div {
+    /*img in card */
+    width: 55px;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+main > section:nth-of-type(5) > div > div > div > a {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 340px;
+    /* =] */
+
+}
+
+main > section:nth-of-type(5) > div > div > div > a > div:nth-of-type(2) {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 100%;
+
+    top: 80%;
+    right: 10%;
+}
+
+main > section:nth-of-type(5) > div > div > div > a > div:nth-of-type(2) p {
+    padding-right: 20px;
+}
+
+
+
+/* multiple hover thing needs a look. Looks so simple yet can't get it to work yet. */
+section:nth-of-type(5) > div > div > div > a:hover {
+    background-color: rgb(8, 44, 78);
+}
+
+section:nth-of-type(5) > div > div > div > a:hover section:nth-of-type(5) > div > div > div > a > div * {
+    color: rgb(255, 204, 0);
+
+}
+
+section:nth-of-type(5) > div > div > div > a:hover section:nth-of-type(5) > div > div > div > a > div > svg {
+    fill: rgb(255, 204, 0);
+
+}
+
+
+
+main > section:nth-of-type(5) > div > div > a {
+    display: flex;
+}
+
+main > section:nth-of-type(5) > div > div > a > svg {
+    padding-right: 10px;
+}
+
+/* ### Section 6 - Meet us ### */
+
+main > section:nth-of-type(6) {
+    /* section padding */
+    padding-top: 360px;
+    padding-bottom: 360px;
+}
+
+main > section:nth-of-type(6) > div:first-child {
+    /* Default margin div */
+    position: relative;
+}
+
+
+
+main > section:nth-of-type(6) > div:first-child > div {
+    /* circle */
+
+    width: 270px;
+    height: 270px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    margin: 0px auto;
+    /* horizontal alignment */
+    background-color: rgb(242, 234, 226);
+    font-size: 14px;
+    line-height: 1.4em;
+    text-align: center;
+    border-radius: 50%;
+    z-index: 101;
+}
+
+
+main > section:nth-of-type(6) > div:nth-of-type(1) {
+    position: relative;
+    padding: 0 calc(50% - 160px); /* why. Just why. Just for 320! */
+}
+
+
+.spreader {
+    /* people */
+    position: absolute;
+    margin: auto auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* horizontal alignment */
+
+    border-radius: 50%;
+    z-index: 1;
+
+    transition: all 1s ease 0s;
+}
+
+img.spreader:nth-of-type(1) {
+    width: 160px;
+    height: 160px;
+    transform: translate(-140px, -270px);
+}
+
+img.spreader:nth-of-type(2) {
+    width: 72px;
+    height: 72px;
+    transform: translate(60px, -360px);
+}
+
+img.spreader:nth-of-type(3) {
+    width: 200px;
+    height: 200px;
+    transform: translate(120px, 310px);
+}
+
+img.spreader:nth-of-type(4) {
+    width: 112px;
+    height: 112px;
+    transform: translate(-110px, 220px);
+}
+
+img.spreader:nth-of-type(5) {
+    width: 120px;
+    height: 120px;
+    transform: translate(160px, -250px);
+}
+
+img.spreader:nth-of-type(6) {
+    width: 72px;
+    height: 72px;
+    transform: translate(-40px, 330px);
+}
+
+
+
+
+main > section:nth-of-type(6) > div:first-child > div > div > div {
+    width: 100%;
+}
+
+main > section:nth-of-type(6) > div:first-child > div > div h3 {
+    padding-bottom: 20px;
+}
+
+main > section:nth-of-type(6) > div:first-child > div > div a {
+    padding: 16px 32px;
+    background-color: rgb(48, 152, 243);
+    border-radius: 100px;
+    color: rgb(255, 255, 255);
+}
+
+main > section:nth-of-type(6) > div:first-child > div > div a:hover {
+    background-color: rgb(8, 44, 78);
+    transition: all 0.6s ease 0s;
+}
+
+/* ### Footer ### */
+
+/* ## Footer Contact ## */
+
+footer {
+    padding: 70px 0 50px;
+    background-color: rgb(8, 44, 78);
+    color: rgb(255, 255, 255);
+}
+
+footer ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+footer a:link {
+    color: white;
+}
+
+footer > div > div {
+    position: relative;
+}
+
+footer > div > div:first-of-type {
+    margin-bottom: 88px;
+}
+
+footer > div > div > a:first-of-type {
+    padding: 16px 32px;
+    background-color: rgb(255, 204, 0);
+    border-radius: 100px;
+    color: black;
+}
+
+footer > div > div > a:first-of-type:hover {
+    background-color: white;
+    transition: all 0.6s ease 0s;
+}
+
+footer > div > div:nth-of-type(1) > div {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+
+    width: 90px;
+    height: 130px;
+
+    bottom: 72px;
+    right: -1px;
+    transform: rotate(90deg);
+}
+
+footer > div > div > div svg {
+    position: relative;
+    transition: all 1.3s ease 0s;
+
+}
+
+footer > div > div > div svg:first-child {
+    transform: translateY(0px);
+
+}
+
+footer > div > div > div svg:nth-child(2) {
+    transform: translateY(0px);
+    bottom: 24.5px;
+}
+
+/* Footer Sitemap */
+
+footer > div > div:nth-of-type(2) {
+    display: flex;
+    flex-direction: column;
+
+}
+
+footer > div > div:nth-of-type(2) > div:nth-of-type(1) {
+    /* contactinfo. Last in footer order. */
+    order: 2;
+    font-size: 18px;
+
+}
+
+footer > div > div:nth-of-type(2) > div:nth-of-type(2) {
+    /* socials. Second in  footer order. */
+    order: 1;
+
+}
+
+footer > div > div:nth-of-type(2) > div:nth-of-type(3) {
+    /* link and mail. First in footer order. */
+    order: 0;
+    background-color: none;
+}
+
+footer > div > div:nth-of-type(2) > div:nth-of-type(3) nav {
+    display: flex;
+}
+
+
+footer > div > div:nth-of-type(2) > div:nth-of-type(3) nav ul {
+    margin-right: 72px;
+}
+
+footer > div > div:nth-of-type(2) > div:nth-of-type(3) nav ul li {
+    margin-bottom: 24px;
+}
+
+footer > div > div:nth-of-type(2) > div:nth-of-type(3) form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+footer > div > div:nth-of-type(2) > div:nth-of-type(3) form label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+footer > div > div:nth-of-type(2) > div:nth-of-type(3) form input {
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    font-size: 18px;
+    font-family: 'DM-sans', sans-serif;
+    width: 90%;
+}
+
+input::placeholder {
+    /* select 'placeholder' att specifically */
+    color: white;
+}
+
+footer > div > div:nth-of-type(2) > div:nth-of-type(3) button {
+    position: absolute;
+
+    right: 10%;
+    top: 14px;
+
+    padding: 16px 0;
+    cursor: pointer;
+
+    border: none;
+}
+
+footer > div > div:nth-of-type(2) > div:nth-of-type(2) > div {
+    margin: 50px 0;
+}
+
+footer > div > div:nth-of-type(2) > div:nth-of-type(2) > div > ul {
+    display: flex;
+    flex-direction: row;
+}
+
+footer > div > div:nth-of-type(2) > div:nth-of-type(2) > div > ul li {
+    margin-right: 40px; }
 
 
 /* MQ */
 
-/* @media only screen and (min-width: 768px) { /* [[Mobile]] does work! Need to set other values later on. */
+/* @media only screen and (min-width: 768px) { /* [[Mobile @  320 wide]] does work! Need to set other values later on. */
