@@ -28,6 +28,15 @@ a > p {
     font-weight: 500;
 }
 
+li {
+    color: white;
+}
+
+li:hover {
+    color: rgb(255, 204, 0);
+    cursor: pointer;
+}
+
 
 button {
     padding: 0;
@@ -35,8 +44,9 @@ button {
     background: none;
 }
 
-div *:hover {
-    fill: orange;
+ul {
+    list-style: none;
+    padding-left: 0;
 }
 
 /* Text */
@@ -86,7 +96,6 @@ section:nth-child(1) {
     display: flex;
     align-items: center;
 
-
     background-color: rgb(48, 152, 243);
     color: rgb(255, 255, 255);
 }
@@ -100,18 +109,21 @@ body > header {
     left: 0;
 
     margin: 1.7rem 1.3rem;
-    /* background-color: none; */
 }
 
 header > nav {
     display: flex;
-
     align-items: center;
     justify-content: space-between;
 }
 
+header nav a {
+    z-index: 9000;
+}
+
 nav > button {
     border: none;
+    z-index: 9000;
 }
 
 button > span {
@@ -123,6 +135,43 @@ button > span {
     margin-bottom: 4px;
 }
 
+header > nav > div {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    inset: 0;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+
+    background-color: rgb(8, 44, 78);
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease 0s;
+}
+
+header > nav > div > div > div > ul > li { /* items */
+    padding-bottom: 32px;
+    font-size: 40px;
+}
+
+header > nav > div > div > div > div {
+    margin-top: 65px;
+    display: flex;
+}
+
+header > nav > div > div > div > div a{
+}
+
+header > nav > div > div > div > div a svg {
+    margin-right: 42px;
+    width: 22px; }
+
 
 /* General alignment */
 
@@ -130,7 +179,8 @@ section > div:first-child,
 section > div:nth-child(2),
 footer > div:first-child {
 
-    padding: 0 1.3rem;
+    margin: 0px auto;
+    padding: 0px 24px;
 }
 
 /* Blok B - who are we */
@@ -528,11 +578,11 @@ main > section:nth-of-type(6) > div:first-child {
 
 
 
-main > section:nth-of-type(6) > div:first-child > div > div {
+main > section:nth-of-type(6) > div:first-child > div {
     /* circle */
 
-    width: 343px;
-    height: 343px;
+    width: 270px;
+    height: 270px;
     position: relative;
     display: flex;
     align-items: center;
@@ -548,34 +598,64 @@ main > section:nth-of-type(6) > div:first-child > div > div {
 }
 
 
-main > section:nth-of-type(6) > div:nth-of-type(2) {
+main > section:nth-of-type(6) > div:nth-of-type(1) {
     position: relative;
+    padding: 0 calc(50% - 160px); /* why. Just why. Just for 320! */
 }
 
 
 .spreader {
     /* people */
-
-    width: 200px;
-    height: 200px;
-
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-
-    bottom: 90px;
+    margin: auto auto;
+    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
     /* horizontal alignment */
 
     border-radius: 50%;
-    z-index: 102;
+    z-index: 1;
+
+    transition: all 1s ease 0s;
 }
 
-.spreader img {
-    transition: all 1s ease 0s;
-    transform: translate(-135px, 220px);
+img.spreader:nth-of-type(1) {
+    width: 160px;
+    height: 160px;
+    transform: translate(-140px, -270px);
 }
+
+img.spreader:nth-of-type(2) {
+    width: 72px;
+    height: 72px;
+    transform: translate(60px, -360px);
+}
+
+img.spreader:nth-of-type(3) {
+    width: 200px;
+    height: 200px;
+    transform: translate(120px, 310px);
+}
+
+img.spreader:nth-of-type(4) {
+    width: 112px;
+    height: 112px;
+    transform: translate(-110px, 220px);
+}
+
+img.spreader:nth-of-type(5) {
+    width: 120px;
+    height: 120px;
+    transform: translate(160px, -250px);
+}
+
+img.spreader:nth-of-type(6) {
+    width: 72px;
+    height: 72px;
+    transform: translate(-40px, 330px);
+}
+
 
 
 
@@ -665,7 +745,7 @@ footer > div > div > div svg:first-child {
 
 footer > div > div > div svg:nth-child(2) {
     transform: translateY(0px);
-    bottom: 25px;
+    bottom: 24.5px;
 }
 
 /* Footer Sitemap */
@@ -679,8 +759,6 @@ footer > div > div:nth-of-type(2) {
 footer > div > div:nth-of-type(2) > div:nth-of-type(1) {
     /* contactinfo. Last in footer order. */
     order: 2;
-
-
     font-size: 18px;
 
 }
@@ -760,9 +838,7 @@ footer > div > div:nth-of-type(2) > div:nth-of-type(2) > div > ul {
 }
 
 footer > div > div:nth-of-type(2) > div:nth-of-type(2) > div > ul li {
-    margin-right: 40px;
-}
-
+    margin-right: 40px; }
 
 
 /* MQ */
