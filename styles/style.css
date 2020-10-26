@@ -2,7 +2,7 @@
 *,
 *::after,
 *::before {
-    box-sizing: content-box;
+    box-sizing: border-box;
 }
 
 /* General */
@@ -11,7 +11,6 @@ body {
     margin: 0;
     padding: 0;
     border: 0;
-    outline: none;
 
     font-size: 20px;
     font-family: 'DM Sans', sans-serif;
@@ -28,6 +27,10 @@ a > p {
     font-weight: 500;
 }
 
+a:hover svg g circle {
+    fill: rgb(8, 44, 78);
+}
+
 li {
     color: white;
 }
@@ -37,28 +40,18 @@ li:hover {
     cursor: pointer;
 }
 
-
 button {
-    padding: 0;
-    margin: 0;
     background: none;
 }
 
 ul {
     list-style: none;
-    padding-left: 0;
 }
+
 
 /* Text */
 
 
-h1 > span:nth-child(1) {
-    /* needs to stick below main txt when going big */
-
-    font-family: 'Archivo', sans-serif;
-
-    color: rgb(255, 204, 0);
-}
 
 body h1,
 body h2,
@@ -75,6 +68,7 @@ body h2 {
 
 body h1 {
     font-size: 40px;
+    letter-spacing: -0.02em;
 }
 
 body h3 {
@@ -85,20 +79,52 @@ body h4 {
     font-size: 16px;
 }
 
+/* General alignment */
+
+section > div:nth-of-type(1),
+section > div:nth-child(2),
+footer > div:first-child {
+
+    padding: 0px 24px;
+    margin: 0px auto;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+.pmob {
+    /* mobile outer padding */
+    max-width: 1120px;
+    width: 100%;
+    padding: 0px 40px;
+    margin: 0px auto;
+
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 /* Header */
 
-section:nth-child(1) {
-    /* Kop */
-    /* Who are we */
+
+section:first-of-type {
     width: 100%;
     height: 100vh;
-
+    position: relative;
     display: flex;
+    -webkit-box-align: center;
     align-items: center;
-
     background-color: rgb(48, 152, 243);
     color: rgb(255, 255, 255);
+    overflow: hidden;
 }
+
+section:first-of-type div {
+    align-self: center;
+}
+
 
 body > header {
     /* menu alignment */
@@ -108,13 +134,23 @@ body > header {
     right: 0;
     left: 0;
 
-    margin: 1.7rem 1.3rem;
+    padding: 25px 0px;
+    z-index: 1000;
+    background-color: rgb(48, 152, 243);
+
+    transition: all 0.6s ease 0s;
+    /*
+transition-property
+transition-duration
+transition-timing-function
+transition-delay */
 }
 
 header > nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0 25px;
 }
 
 header nav a {
@@ -155,9 +191,11 @@ header > nav > div {
     transition: all 0.3s ease 0s;
 }
 
-header > nav > div > div > div > ul > li { /* items */
+header > nav > div > div > div > ul > li {
+    /* items */
     padding-bottom: 32px;
     font-size: 40px;
+
 }
 
 header > nav > div > div > div > div {
@@ -165,23 +203,61 @@ header > nav > div > div > div > div {
     display: flex;
 }
 
-header > nav > div > div > div > div a{
-}
-
 header > nav > div > div > div > div a svg {
     margin-right: 42px;
-    width: 22px; }
-
-
-/* General alignment */
-
-section > div:first-child,
-section > div:nth-child(2),
-footer > div:first-child {
-
-    margin: 0px auto;
-    padding: 0px 24px;
+    width: 22px;
 }
+
+/* Together animation */
+
+#together
+
+/* h1 span */
+    {
+    font-family: 'Archivo', sans-serif;
+    color: rgb(255, 204, 0);
+
+    /* animation: name duration timing-function delay iteration-count direction fill-mode play-state; */
+    animation: together-animation 2s 1;
+}
+
+@keyframes together-animation {
+    0% {
+        color: white;
+    }
+
+    100% {
+        color: rgb(255, 204, 0);
+    }
+}
+
+
+.together_animation {
+    animation-duration: 2s;
+}
+
+#nav {
+    animation-name: menuFade;
+    animation-duration: 1s;
+}
+
+@keyframes menuFade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+/* home page main animation */
+
+/* https://css-tricks.com/guide-svg-animations-smil/#:~:text=Overview,over%20a%20period%20of%20time. */
+
+.welcome_animation {
+    position: absolute;
+    right: 0px;
+    bottom: -1px;
+    left: 0px;
+    opacity: 1;
+    transition: all 2s ease 0s;
+}
+
 
 /* Blok B - who are we */
 
@@ -203,7 +279,6 @@ main > section:nth-of-type(2) > div > div {
 
 main > section:nth-of-type(2) > div > div > div {
     /* item level */
-    /*background-color: orange; */
 
     display: flex;
 
@@ -269,16 +344,11 @@ main > section:nth-of-type(2) > div > div > div > div > div > svg {
     align-self: center;
 }
 
-main > section:nth-of-type(2) > div > div > div > div:nth-child(2) {
-    /* content/text level */
-    /* background-color: palegreen; */
-}
 
 /* ### Blok C - Cases ### */
 
 main > section:nth-of-type(3) {
     /* grid level */
-    /* background-color: palegreen; */
     padding-bottom: 100px;
 }
 
@@ -286,9 +356,11 @@ main > section:nth-of-type(3) > div > article {
     /* item level */
     background-color: rgb(242, 234, 226);
     margin-bottom: 30px;
+
+    overflow: hidden;
 }
 
-main > section:nth-of-type(3) > div > article > a > div {
+main > section:nth-of-type(3) > div > article > a > div:first-of-type {
     /* item image level */
     background-position: center;
     background-size: cover;
@@ -300,40 +372,45 @@ main > section:nth-of-type(3) > div > article > a > div {
     width: 100%;
 
     overflow: hidden;
+    transition: all .5s ease 0s;
 }
 
-main > section:nth-of-type(3) > div > article:nth-of-type(2) > a > div {
+.articles > div > article:nth-of-type(2) > a > div:first-of-type {
     background-image: url(/images/paypal.png);
 }
 
+main > section:nth-of-type(3) > div > article:hover > a > div:first-of-type {
+    transform: scale(1.05);
+}
 
-
-
-main > section:nth-of-type(3) > div > article > a > header,
-main > section:nth-of-type(3) > div > article > a > p {
-    /* item text level */
+main > section:nth-of-type(3) > div > article > a > div:last-of-type {
     padding-left: 20px;
     padding-right: 20px;
 }
 
-main > section:nth-of-type(3) > div > article > a > header > h4 {
+main > section:nth-of-type(3) > div > article:hover > a:hover > div > svg g circle {
+    fill: rgb(green);
+    max-height: 100%;
+}
+
+
+.articles h4 {
     color: rgb(48, 152, 243);
     font-weight: 700;
     margin-top: 30px;
 }
 
-main > section:nth-of-type(3) > div > article > a > p {
+.articles p {
     display: inline-flex;
     /* align-items: flex-start; */
     padding-bottom: 20px;
 }
 
-main > section:nth-of-type(3) > div > article > a > p > svg,
-main > section:nth-of-type(4) > div:nth-of-type(2) > a {
+.articles p > svg {
     margin-right: 10px;
 }
 
-main > section:nth-of-type(3) > div > div {
+.articles > div > div {
     text-align: center;
     padding-top: 20px;
 }
@@ -349,13 +426,30 @@ main > section:nth-of-type(3) > div > div > a {
     font-weight: 500;
 
     transition: all 0.6s ease 0s;
+    /* all: transition-property
+    transition-duration
+    transition-timing-function
+    transition-delay */
 }
 
 main > section:nth-of-type(3) > div > div > a:hover {
     background-color: rgb(8, 44, 78);
 }
 
+main > section:nth-of-type(3) a:hover div {
+    transition: all 0.3s ease 0s;
+    overflow: hidden;
+
+}
+
+
 /* ### Blok 3 - Cards ###*/
+
+section:nth-of-type(4) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: rgb(255, 204, 0);
+}
 
 main > section:nth-of-type(4) > div {
     display: flex;
@@ -363,15 +457,15 @@ main > section:nth-of-type(4) > div {
     /* horizontaal alignment */
     justify-content: space-between;
     /* verdeel max over flex */
-    background-color: rgb(255, 204, 0);
-    padding-top: 50px;
-    padding-bottom: 50px;
 }
 
 
-main > section:nth-of-type(4) > div:nth-of-type(1) > div:first-child {
+.progressBar
+
+/* main > section:nth-of-type(4) > div:nth-of-type(1) > div:first-child */
+    {
     /* progress bar wrapper */
-    width: 160px;
+    width: 140px;
     background-color: rgb(206, 172, 16);
     border-radius: 4px;
     height: 4px;
@@ -383,7 +477,7 @@ main > section:nth-of-type(4) > div:nth-of-type(1) > div:first-child > div {
     border-radius: 4px;
 
     animation-name: progressBar;
-    animation-duration: 15s;
+    animation-duration: 10s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
@@ -404,6 +498,7 @@ main > section:nth-of-type(4) > div:nth-of-type(1) > div:first-child > div {
 
 main > section:nth-of-type(4) > div:nth-of-type(1) > div {
     display: flex;
+    overflow: hidden;
 }
 
 main > section:nth-of-type(4) > div:nth-of-type(1) > div > button {
@@ -424,24 +519,66 @@ main > section:nth-of-type(4) > div:nth-of-type(1) > div > button > svg:hover * 
     transition: 0.3s;
 }
 
-/* second part of section 4 - text and heading */
+/* images part of section 4 */
 
-main > section:nth-of-type(4) > div:nth-child(2) > div > p {
-    /* changing body text */
-    margin: 20px 0 30px 0;
-    font-weight: 500;
+main > section:nth-of-type(4) > div:nth-of-type(2) > div:first-of-type {
+    max-width: 320px;
+    max-height: 310px;
+    margin: 0px auto;
+}
+
+/* text and heading of section 4 */
+
+main > section:nth-of-type(4) > div:nth-child(2) {
+    /* slide CONTENT W/ IMAGES container */
+    max-width: 1120px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 24px 0 24px;
+    margin: 0px auto;
+}
+
+main > section:nth-of-type(4) > div:nth-child(2) > div > header {
+    width: 100%;
 }
 
 main > section:nth-of-type(4) > div:nth-child(2) > div > header > h1 {
     display: flex;
     flex-direction: column;
     font-weight: 500;
+
+    overflow: hidden;
+    /* position items absolute, overflow hidden so it only shows within container boundaries */
+    height: 1.2em;
+
+}
+
+main > section:nth-of-type(4) > div:nth-child(2) > div > div {
+    /* changing body text */
+    margin: 20px 0 30px 0;
+    overflow: hidden;
+    /* position items absolute, overflow hidden so it only shows within container boundaries */
+    height: 140px;
+
+}
+
+
+
+main > section:nth-of-type(4) > div:nth-child(2) > div > div > p {
+    /* changing body text */
+    margin: 0 0 30px 0;
+    font-weight: 400;
+
 }
 
 main > section:nth-of-type(4) > div:nth-child(2) > div > header > h1 > span {
     /* changing header element */
     font-weight: 400;
+    font-size: 38px;
     color: black;
+    display: inline-block;
+
 
 }
 
@@ -463,8 +600,25 @@ main > section:nth-of-type(4) > div:nth-child(2) > div > a > svg {
 
 main > section:nth-of-type(4) > div:nth-child(2) > div > header > div > img {
     width: 100%;
+    display: flex;
+    align-content: center;
 }
 
+.headerChange {
+    /* transform: translateY(calc(-1.2em));
+    transition: transform 1s ease 0s; */
+
+    animation-name: topScroll;
+    animation-duration: 1s;
+}
+
+@keyframes topScroll {
+    0% {
+        top: 100%
+    }
+
+    100% {top: 0%};
+}
 
 
 /* ### Section 5 - Articles ### */
@@ -536,9 +690,6 @@ main > section:nth-of-type(5) > div > div > div > a > div:nth-of-type(2) p {
     padding-right: 20px;
 }
 
-
-
-/* multiple hover thing needs a look. Looks so simple yet can't get it to work yet. */
 section:nth-of-type(5) > div > div > div > a:hover {
     background-color: rgb(8, 44, 78);
 }
@@ -557,6 +708,7 @@ section:nth-of-type(5) > div > div > div > a:hover section:nth-of-type(5) > div 
 
 main > section:nth-of-type(5) > div > div > a {
     display: flex;
+    align-items: center;
 }
 
 main > section:nth-of-type(5) > div > div > a > svg {
@@ -569,6 +721,8 @@ main > section:nth-of-type(6) {
     /* section padding */
     padding-top: 360px;
     padding-bottom: 360px;
+
+    overflow: hidden;
 }
 
 main > section:nth-of-type(6) > div:first-child {
@@ -600,7 +754,7 @@ main > section:nth-of-type(6) > div:first-child > div {
 
 main > section:nth-of-type(6) > div:nth-of-type(1) {
     position: relative;
-    padding: 0 calc(50% - 160px); /* why. Just why. Just for 320! */
+    padding: 0 calc(50% - 160px);
 }
 
 
@@ -656,6 +810,10 @@ img.spreader:nth-of-type(6) {
     transform: translate(-40px, 330px);
 }
 
+.animate {
+    animation: animate .3s ease-in-out none;
+}
+
 
 
 
@@ -689,8 +847,7 @@ footer {
     color: rgb(255, 255, 255);
 }
 
-footer ul {
-    list-style: none;
+footer ul, nav div ul {
     padding-left: 0px;
 }
 
@@ -838,8 +995,24 @@ footer > div > div:nth-of-type(2) > div:nth-of-type(2) > div > ul {
 }
 
 footer > div > div:nth-of-type(2) > div:nth-of-type(2) > div > ul li {
-    margin-right: 40px; }
+    margin-right: 40px;
+}
 
+
+/* events */
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.hide {
+    display: none;
+
+}
+
+.active {
+    display: flex;
+}
 
 /* MQ */
 
