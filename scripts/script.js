@@ -17,10 +17,21 @@ window.addEventListener("scroll", function () {
 
 // menu toggle
 
+document.querySelector('.menuBtn').addEventListener('click', menuToggle);
+
 function menuToggle() {
-   var element = document.getElementById("menuToggle");
-   element.classList.toggle("hide");
-}
+    var isToggle = document.getElementById('menu');
+    isToggle.className = (isToggle.className === 'active') ? "" : 'active'; // if true, do nothing, if false add class // toggle
+
+    var scrollLock = document.querySelector('html');
+    scrollLock.className = (scrollLock.className === 'noScroll') ? "" : 'noScroll'; // if true, do nothing, if false add class // toggle
+
+    var logoColor = document.querySelector('.pmob a svg path');
+
+    logoColor.className = (logoColor.className === 'isOpen') ? "" : 'isOpen'; // if true, do nothing, if false add class
+    }
+
+
 
 
 
@@ -101,62 +112,86 @@ function animate() {
 
 
 
-// OG
+
+// ...
 
 var slideIndex = 1;
 
-var myTimer;
+var intTimer;
 
-window.addEventListener("load",function() { // On load, do this:
-    showSlides(slideIndex); // neemt de slide...
-    myTimer = setInterval(function(){plusSlides(1)},
-                          9000); // en neemt de volgende na 9s als je niets doet.
+
+window.addEventListener("load",function() {
+    whatSlide(slideIndex);
+    intTimer = setInterval(function(){nextSlide(1)}, 4000);
 })
 
-// nav control
-function plusSlides(n){
-  clearInterval(myTimer); // reset internal 9s timer
-  if (n < 0){
-    showSlides(slideIndex -= 1); // klik links voor de vorige slide
+document.querySelector('.sliderBtn').addEventListener('click', nextSlide);
+
+/// new plusSlides(n)
+
+function nextSlide(x) { // next/prev
+
+    if (x < 0) { // x cannot be 0
+        whatSlide(slideIndex -= 1); // slideIndex = sI - 1; set slideIndex to 0 - see whatSlide for <1 reference. Enables rotation.
+    } else {
+        whatSlide(slideIndex += 1); // set slideIndex to 2; see whatSlide for reference
+    }
+
+    // timer / click
+
+  if (x === -1){
+    intTimer = setInterval(function(){nextSlide(x + 2)}, 4000);
   } else {
-   showSlides(slideIndex += 1); // en rechts voor de volgende in de groep.
+    intTimer = setInterval(function(){nextSlide(x + 1)}, 4000);
   }
 
-  if (n === -1){ // als n (type/waarde) gelijk zijn...
-    myTimer = setInterval(function(){plusSlides(n + 2)}, 9000); // zet waarde naar 1 zodat je geen blanc krijgt en zet timer op 9s.
-  } else {
-    myTimer = setInterval(function(){plusSlides(n + 1)}, 9000); // +1
-  }
 }
 
+function whatSlide(x) { // yeah, this obviously doesn't work any more. Kinda broke it.
 
-//Controls the current slide and resets interval if needed
-function currentSlide(n){
-  clearInterval(myTimer); // reset internal 9s timer
-  myTimer = setInterval(function(){plusSlides(n + 1)}, 9000); // zet timer op 9s na elke slide
-  showSlides(slideIndex = n);
+    var slides = document.querySelector(".hSC"); // element container
+    var slidesChildren = slides.children; // returns the children of slides
+
+    var headerContainer = document.querySelector("span.hSC"); // array w headers
+    var textContainer = document.querySelector("div.tSC"); // array w text bodies
+
+    // if statements
+
+    if (x > slidesChildren.length) {
+        slideIndex = 1; // reset var slideIndex to 1
+    }
+
+    if (x < 1) {
+        slideIndex = slidesChildren.length; // set var slideIndex to 3
+    }
+
+
+    if (x == 1) {
+
+        headerContainer.style.transform = "translateY(calc(0em))";
+        textContainer.style.transform = "translateY(calc(0em))";
+    }
+
+    if (x == 2) {
+
+        headerContainer.style.transform = "translateY(calc(-1.25em))";
+        textContainer.style.transform = "translateY(calc(-10em))";
+    }
+
+    if (x == 3) {
+
+        headerContainer.style.transform = "translateY(calc(-2.5em))";
+        textContainer.style.transform = "translateY(calc(-20em))";
+
+    }
+    console.log("Index = " + slideIndex + " , x == " + x + "!"); // should return values from 1 to 3.}
+    console.log(slidesChildren[0] + slidesChildren[1] + slidesChildren[2]);
 }
 
-function showSlides(n){
-  var i; //nr
-  var header = document.getElementsByClassName("headerChange"); // neemt element...
-  var content = document.getElementsByClassName("contentChange");
+// reset progressBar on button click
 
+// somehow breaks buttons, dunno why?
 
-  if (n > header.length) {slideIndex = 1} // zolang x meer is dan het item wat getoond word blijven we optellen..
-  if (n < 1) {slideIndex = header.length} // en als we we te hoog (>3) gaan reset je de waarde naar 1.
-  for (i = 0; i < header.length; i++) {
-      header[i].style.display = "none"; // ... en past de stijl aan naar display:none;
-      content[i].style.display = "none";
-  }
-  for (i = 0; i < header.length; i++) {
-      header[i].className = header[i].className.replace(" active", ""); // vervang de classname door 'active' met bijbehorende eigenschappen
-  }
+// https://codepen.io/Thogronen/pen/OJXZWdd
 
-  header[slideIndex-1].style.display = "block"; // en vervang display:none; door display:block;
-  content[slideIndex-1].style.display = "block";
-}
-
-// https://css-tricks.com/restart-css-animation/
-// https://medium.com/@mciastek/animate-on-scroll-with-intersection-observer-ea744cddb876
 

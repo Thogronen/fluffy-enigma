@@ -9,8 +9,8 @@ Markdown cheat cheet: [Hulp bij het schrijven van Markdown](https://github.com/a
 
 
 ## Bronnenlijst
-1. -bron 1-
-2. -bron 2-
+1. https://projects.verou.me/bubbly/
+2. https://indicius.com
 3. -...-
 
 
@@ -27,25 +27,28 @@ Markdown cheat cheet: [Hulp bij het schrijven van Markdown](https://github.com/a
 
 ## Voortgang 3 (week 6)
 
--same as voortgang 1-
+Beide pagina's zijn zo goed als af, nu de grote animaties nog...
+Pagina's zijn gecheckt op grote en kleine fouten.
 
 
 
 ## Voortgang 2 (week 5)
 
--same as voortgang 1-
+Voortgang met animaties en js, maar loopt nog niet heel lekker.
+Menu werkt ook eindelijk!
 
+![Hoofdpagina](images/indi v2_menu.png)
 
 
 ## Voortgang 1 (week 3)
 
 ### Stand van zaken
 
--dit ging goed & dit was lastig-
+De eerste pagina is visueel zo goed als klaar, animaties zijn lastig.
 
-**Screenshot(s):**
+*Hoofdpagina*
 
--screenshot(s) van hoe ver je bent-
+![Hoofdpagina](images/Indi v2_no_animation.png)
 
 ### Agenda voor meeting
 
@@ -61,7 +64,7 @@ Markdown cheat cheet: [Hulp bij het schrijven van Markdown](https://github.com/a
 
 **Je startniveau:** Rood
 
-**Je focus:** Responsive into Surface
+**Je focus:** Surface
 
 **Je opdracht:** https://www.indicius.com/
 

@@ -16,6 +16,8 @@ body {
     font-family: 'DM Sans', sans-serif;
 
     margin: 0px auto;
+
+    z-index: 2;
 }
 
 body svg {
@@ -55,6 +57,118 @@ ul {
     list-style: none;
     padding-left: 0;
 }
+
+/* Menu */
+
+.pmob {
+    /* menu layout */
+    padding: 0px 25px;
+    margin: 0px auto;
+    z-index: 9001;
+}
+
+.pmob a svg path {
+    fill: rgb(8, 44, 78);
+}
+
+.isOpen {
+    fill: white;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+body > header {
+    /* menu alignment */
+    position: fixed;
+
+    max-width: 100vw;
+    right: 0;
+    left: 0;
+
+    padding: 25px 0px;
+    z-index: 1000;
+    background-color: rgb(255, 204, 0);
+
+    transition: all 0.6s ease 0s;
+    /*
+transition-property
+transition-duration
+transition-timing-function
+transition-delay */
+}
+
+header > nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header nav a {
+    z-index: 9000;
+}
+
+nav > button {
+    border: none;
+    z-index: 9000;
+}
+
+button > span {
+    display: block;
+    width: 22px;
+    height: 3px;
+    background-color: rgb(8, 44, 78);
+    border-radius: 16px;
+    margin-bottom: 4px;
+}
+
+/* header > nav > div { */
+#menu { /* switch to full at 768px*/
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+
+    background-color: rgb(8, 44, 78);
+    opacity: 0;
+    visibility: hidden;
+    /* transition: all 0.3s ease 0s; */
+       transition: all 0.6s ease;
+
+    z-index: -1}
+
+#menu.active {
+    opacity: 1;
+    z-index: 8000;
+    visibility: visible;
+}
+
+header > nav > div > div > div > ul > li {
+    /* items */
+    padding-bottom: 32px;
+    font-size: 40px;
+
+}
+
+header > nav > div > div > div > div {
+    margin-top: 65px;
+    display: flex;
+}
+
+header > nav > div > div > div > div a svg {
+    margin-right: 42px;
+    width: 22px;
+}
+
 
 /* Text */
 
@@ -106,57 +220,6 @@ footer > div{
 
 
 
-/* Main Nav */
-
-body > header {
-    /* menu alignment */
-    position: fixed;
-
-    max-width: 100vw;
-    right: 0;
-    left: 0;
-
-    padding: 25px 0px;
-    z-index: 1000;
-    background-color: rgb(255, 204, 0);
-
-    transition: all 0.6s ease 0s;
-    /*
-transition-property
-transition-duration
-transition-timing-function
-transition-delay */
-}
-
-header > nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 25px;
-}
-
-header nav a {
-    z-index: 9000;
-}
-
-header nav a svg path {
-    /* logo */
-    fill: rgb(8, 44, 78);
-}
-
-nav > button {
-    border: none;
-    z-index: 9000;
-}
-
-button > span {
-    display: block;
-    width: 22px;
-    height: 3px;
-    background-color: rgb(8, 44, 78);
-    border-radius: 16px;
-    margin-bottom: 4px;
-}
 
 /* Cases Header */
 
@@ -620,4 +683,8 @@ footer section:nth-of-type(2) div div a svg{
 
 footer section:nth-of-type(2) div{
     margin-bottom: 0px!important;
+}
+
+.noScroll {
+    overflow-y: hidden;
 }
