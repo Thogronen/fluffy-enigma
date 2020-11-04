@@ -16,7 +16,13 @@ body {
     font-family: 'DM Sans', sans-serif;
 
     margin: 0px auto;
-    padding: 0px 24px;
+}
+
+body svg {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+
 }
 
 a:link,
@@ -78,21 +84,29 @@ body h3 {
 }
 
 body h4 {
-    font-size: 16px;
+    font-size: 18px;
 }
 
-section:nth-child(1) {
-    /* Kop */
-    /* Who are we */
-    width: 100%;
-    height: 100vh;
-
-    display: flex;
-    align-items: center;
-
-    background-color: rgb(48, 152, 243);
-    color: rgb(255, 255, 255);
+p {
+    font-size: 18px;
 }
+
+
+div > header {
+    padding: 0 24px;
+}
+
+/* General alignment */
+
+section > div,
+footer > div{
+    /* only direct desc */
+    padding: 0 25px;
+}
+
+
+
+/* Main Nav */
 
 body > header {
     /* menu alignment */
@@ -102,17 +116,32 @@ body > header {
     right: 0;
     left: 0;
 
-    margin: 1.7rem 1.3rem;
+    padding: 25px 0px;
+    z-index: 1000;
+    background-color: rgb(255, 204, 0);
+
+    transition: all 0.6s ease 0s;
+    /*
+transition-property
+transition-duration
+transition-timing-function
+transition-delay */
 }
 
 header > nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0 25px;
 }
 
 header nav a {
     z-index: 9000;
+}
+
+header nav a svg path {
+    /* logo */
+    fill: rgb(8, 44, 78);
 }
 
 nav > button {
@@ -124,57 +153,471 @@ button > span {
     display: block;
     width: 22px;
     height: 3px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(8, 44, 78);
     border-radius: 16px;
     margin-bottom: 4px;
 }
 
-header > nav > div {
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    inset: 0;
+/* Cases Header */
+
+.yellow {
+    padding: 0 0;
+    background-color: rgb(255, 204, 0);
+}
+
+.cases-header {
+    padding: 5em 25px;
+    color: rgb(8, 44, 78);
+    font-size: 0.9em;
+    /* height: 100vh; */
+
+    display: flex;
+    flex-direction: column;
+}
+
+.cases-header div:first-of-type span {
+    display: inline-flex;
+}
+
+.cases-header div:first-of-type span::after {
+    content: "";
+    /* empty */
+    width: 6px;
+    height: 6px;
+    margin: 10px 0.4em;
+    background-color: rgb(48, 152, 243);
+    border-radius: 50%;
+
+    display: inline-flex;
+}
+
+.cases-header div:first-of-type span:last-child::after {
+    background-color: rgb(255, 204, 0);
+}
+
+.cases-header div:nth-of-type(2) {
+    margin-top: 0.4em;
+}
+
+
+.cases-header div:nth-of-type(2) span::after {
+    content: "|";
+    margin: 0 0.4em;
+}
+
+.cases-header div:nth-of-type(2) span:last-child::after {
+    content: "";
+}
+
+/* Section 1 - featured img */
+
+main section:nth-of-type(1) {
+    margin-top: -3em;
+    margin-bottom: -2em;
+
+
+}
+
+
+section:nth-of-type(1) div div {
+    overflow: hidden;
+    /* prevent overflow to the right */
+
+}
+
+section:nth-of-type(1) div div div {
+    position: relative;
+    /* enables img layer */
+    overflow: hidden;
+    /* prevent overflow to the right */
+    padding-bottom: 60%;
+    /* image does not show otherwise as there's no fixed w/h on the container */
+    /* height: 5em; */
+    /* is an alternative but doesn't scale at all with the larger screens */
+
+}
+
+section:nth-of-type(1) div div div img {
+    position: absolute;
+
     top: 0px;
     left: 0px;
-    bottom: 0px;
-    right: 0px;
 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Section 2 - Challenge */
+
+section:nth-of-type(2) {
+    margin-top: 100px;
+}
+
+
+section:nth-of-type(2) div div:first-of-type,
+section:nth-of-type(3) div div:first-of-type,
+section:nth-of-type(7) div div:first-of-type
+{
+    /* Titles */
+    color: rgb(48, 152, 243);
+    font-weight: 500;
+    margin-bottom: 0.2em;
+
+}
+
+section:nth-of-type(2) div:first-of-type {
+    /* title spacing */
+    margin-bottom: 2em;
+
+}
+
+/* Quote and Co | Section 3 */
+
+section:nth-of-type(3) {
+    margin-bottom: 2em;
+}
+
+.creds{
+    /* quote spacing */
+    margin-top: 2em;
+
+}
+
+/* https://projects.verou.me/bubbly/ Credit where it's due */
+
+.quote {
+    position: relative;
+    background: #3098f3;
+    border-radius: .4em;
+    /* width: 100%; */
+    color: white;
+    padding: 1.2em;
+    margin-top: 2em;
+}
+
+.quote:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 8%;
+    width: 0;
+    height: 0;
+    border: 1em solid transparent;
+    border-top-color: #3098f3;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -0.5em;
+    margin-bottom: -1em;
+}
+
+
+
+.creds img {
+
+    object-fit: cover;
+
+    height: 2em;
+    width: 2em;
+    border-radius: 50%;
+    margin-right: 1em;
+
+}
+
+.creds {
+    /* below quote */
     display: flex;
-    align-items: center;
-    padding: 0 40px;
 
-    background-color: rgb(8, 44, 78);
+}
+
+.creds div {
+    display: flex;
+    flex-direction: column;
+}
+
+.creds p:first-of-type {
+    font-weight: 700;
+}
+
+/* Section 4 | Discovery */
+
+section:nth-of-type(4){
+    background-color: rgb(242, 234, 226);
+    padding: 2.5em 0;
+}
+
+
+section h3 {
+    /* also applies to the following */
+    margin-bottom: 0.5em;
+    font-weight: 500;
+}
+
+/* stickies */
+
+section:nth-of-type(4) > div > div {
+    margin-top: 2em;
+}
+
+
+/* section:nth-of-type(4) div:nth-of-type(2) h4 */
+.disc-header {
+    font-weight: 500;
+    margin-bottom: 0.5em;
+}
+
+.sticky {
+    display: flex;
+    overflow-x: auto;
+}
+
+.sticky svg {
+    margin-right: 0.5em;
+    flex-shrink: 0;
+    /* do NOT shrink */
+}
+
+/* Section 5 - Branding */
+
+section:nth-of-type(5) {
+    padding: 2.5em 0;
+}
+
+section:nth-of-type(5) div:nth-of-type(2) {
+    margin-top: 2em;
+    /* !! */
+}
+
+
+section:nth-of-type(5) div,
+section:nth-of-type(6) div:nth-of-type(2)
+{
+    padding: 0 0;
+    /* sad padding noises */
+}
+
+section:nth-of-type(5) div div:first-of-type{
+    padding: 0 25px;
+}
+
+
+
+
+section:nth-of-type(5) div div:nth-of-type(2) div {
+    overflow: hidden;
+    position: relative;
+
+}
+
+section:nth-of-type(5) div div:nth-of-type(2) div div {
+    width: 100%;
+    padding-bottom: 50%;
+
+}
+
+section:nth-of-type(5) div:nth-of-type(2) div img {
+    position: absolute;
+    top: 0px;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
     opacity: 1;
-    visibility: visible;
-    transition: all 0.3s ease 0s;
+    /* !! */
+    transition-delay: 500ms;
 }
 
-header > nav > div > div > div > ul > li { /* items */
-    padding-bottom: 32px;
-    font-size: 40px;
+section:nth-of-type(5) div:nth-of-type(2) div:first-of-type img {
+    left: 0;
 }
 
-header > nav > div > div > div > div {
-    margin-top: 65px;
+section:nth-of-type(5) div:nth-of-type(2) div:last-of-type img {
+    right: 0;
+}
+
+.branding {
+    max-width: calc(100% - 20px);
+}
+
+/* section 6 | UX Analysis and Recommendations*/
+
+section:nth-of-type(6){
+    padding-top: 2.5em;
+    background-color: rgb(242, 234, 226);
+}
+
+.parallax {
+    height: 10em;
+    background-image: url(/images/parallax.png);
+
+    background-attachment: fixed;
+    /* stick in place */
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    margin-top: 3em;
+}
+
+/* section 7 | Results */
+
+section:nth-of-type(7){
+    padding: 2.5em 0;
+}
+
+section:nth-of-type(7) a{
+    display: flex; /* put em on one line */
+    margin-bottom: 2em;
+}
+
+section:nth-of-type(7) svg{
+    margin-right: 8px;
+}
+
+section:nth-of-type(7) div:nth-of-type(2) div{
+    margin-bottom: 1em;
+
+    position: relative;
+    overflow: hidden;
+}
+
+section:nth-of-type(7) div:nth-of-type(2) div div {
+    padding-bottom: 65%;
+}
+
+section:nth-of-type(7) div:nth-of-type(2) div img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+/* Cases Footer */
+
+footer {
+    padding: 70px 0 1px;
+    background-color: rgb(8, 44, 78);
+    color: rgb(255, 255, 255);
+}
+
+footer ul, nav div ul {
+    padding-left: 0px;
+}
+
+footer a:link {
+    color: white;
+}
+
+.CTA {
+    margin-bottom: 88px;
+    position: relative;
+}
+
+.CTA h2 {
+    padding-bottom: 2em;
+}
+
+.CTA p {
+    padding-bottom: 3em;
+}
+
+.CTA a:first-of-type {
+    padding: 16px 32px;
+    background-color: rgb(255, 204, 0);
+    border-radius: 100px;
+    color: rgb(8, 44, 78)
+}
+
+.CTA > a:first-of-type:hover {
+    background-color: white;
+    transition: all 0.6s ease 0s;
+}
+
+.footer-animation {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+
+    width: 90px;
+    height: 130px;
+
+    bottom: -53px;
+    left: calc(100% - 110px); /* thing is 110 px wide */
+    transform: rotate(90deg);
+}
+
+.footer-animation svg {
+    position: relative;
+    transition: all 1.3s ease 0s;
+
+}
+
+.footer-animation svg:first-child {
+    transform: translateY(0px);
+
+}
+
+.footer-animation svg:nth-child(2) {
+    transform: translateY(0px);
+    bottom: 24.5px;
+}
+
+/* section 9 | Next case */
+
+footer section:nth-of-type(2) div div a {
     display: flex;
 }
 
-header > nav > div > div > div > div a svg {
-    margin-right: 42px;
-    width: 22px; }
-
-
-/* new */
-
-body header {
-    background-color: rgb(255, 204, 0);
-    color: rgb(8, 44, 78);
+footer section:nth-of-type(2) div div a svg{
+    margin-right: 8px;
 }
 
-main div header {
-        background-color: rgb(255, 204, 0);
-    color: rgb(8, 44, 78);
-
+.blue {
+    padding: 2em 0;
+    color: white;
 }
 
+.blue div, .blue h2 {
+    color: white !important; /* */
+}
 
+.blue div:first-of-type span::after {
+    background-color: orange !important;
+}
+
+.blue div:first-of-type span:last-of-type::after {
+    background-color: rgb(8, 44, 78)!important;
+}
+
+.next-case-img {
+    margin-bottom: 0px;
+}
+
+.next-case-img div{
+    position: relative;
+    overflow: hidden;
+}
+
+.next-case-img div div {
+    padding-bottom: 40%;
+}
+
+.next-case-img div img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+footer section:nth-of-type(2) div{
+    margin-bottom: 0px!important;
+}

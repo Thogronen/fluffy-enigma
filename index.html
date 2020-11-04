@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 
 <!-- TODO -->
 
@@ -35,14 +35,14 @@
             </a>
 
             <!-- mobile view, items tbd -->
-            <button onclick="menuToggle()">
+            <button class="menuBtn">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
             <!-- large view -->
-            <div id="menuToggle" class="hide">
+            <div id="menu">
                 <div>
                     <div>
                         <ul>
@@ -76,10 +76,10 @@
         <section class="welcome">
             <div class="pmob">
                 <header>
-                    <h1>Designing for a more human-centered world.
+                    <h2>Designing for a more human-centered world.
                         <br>
                         <span id="together">Together.</span>
-                    </h1>
+                    </h2>
                 </header>
                 <div class="welcome_animation">
                     <div style="width:100%;height:100%;overflow:hidden;margin:0 auto;outline:none" title="" role="button" aria-label="animation" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 187" width="375" height="187" preserveAspectRatio="xMidYMid slice" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);">
@@ -300,20 +300,20 @@
             <div>
                 <div class="progressBar">
                     <!-- PB Container -->
-                    <div id="whiteBarId" class="whiteBarClass">
+                    <div class="whiteBar">
                         <!-- pb -->
 
                     </div>
                 </div>
                 <div>
-                    <button class="sliderBtn" onclick='plusSlides(-1)'>
+                    <button class="sliderBtn left" onclick='nextSlide(-1)'>
                         <svg width="40" height="40" viewBox="0 0 60 60" fill="none" style="transform:rotate(180deg)">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M30 1.42857C30 0.639593 30.6105 0 31.3636 0C47.1791 0 60 13.4315 60 30C60 46.5685 47.1791 60 31.3636 60C30.6105 60 30 59.3604 30 58.5714C30 57.7825 30.6105 57.1429 31.3636 57.1429C45.6728 57.1429 57.2727 44.9906 57.2727 30C57.2727 15.0094 45.6728 2.85714 31.3636 2.85714C30.6105 2.85714 30 2.21755 30 1.42857Z" fill="#082C4E"></path>
                             <path d="M37.9049 29.4926C37.8446 29.3291 37.7542 29.1797 37.6388 29.053L31.303 22.3918C30.9816 22.0539 30.5131 21.9219 30.074 22.0456C29.6349 22.1693 29.292 22.5299 29.1743 22.9915C29.0567 23.4531 29.1822 23.9457 29.5036 24.2836L33.6853 28.6666L23.2672 28.6666C22.5673 28.6666 22 29.2631 22 29.9989C22 30.7347 22.5673 31.3311 23.2672 31.3311L33.6853 31.3311L29.5036 35.7142C29.2637 35.9643 29.1288 36.3048 29.1288 36.66C29.1288 37.0153 29.2637 37.3558 29.5036 37.6059C29.7416 37.8581 30.0654 38 30.4033 38C30.7412 38 31.0651 37.8581 31.303 37.6059L37.6388 30.9448C37.7542 30.8181 37.8446 30.6687 37.9049 30.5051C38.0317 30.1808 38.0317 29.817 37.9049 29.4926Z" fill="#082C4E"></path>
                         </svg>
                     </button>
 
-                    <button class="sliderBtn" onclick='plusSlides(1)'>
+                    <button class="sliderBtn right" onclick='nextSlide(1)'>
                         <svg width="40" height="40" viewBox="0 0 60 60" fill="none" style="transform:rotate(180deg)">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M30 1.42857C30 0.639593 30.6105 0 31.3636 0C47.1791 0 60 13.4315 60 30C60 46.5685 47.1791 60 31.3636 60C30.6105 60 30 59.3604 30 58.5714C30 57.7825 30.6105 57.1429 31.3636 57.1429C45.6728 57.1429 57.2727 44.9906 57.2727 30C57.2727 15.0094 45.6728 2.85714 31.3636 2.85714C30.6105 2.85714 30 2.21755 30 1.42857Z" fill="#082C4E"></path>
                             <path d="M37.9049 29.4926C37.8446 29.3291 37.7542 29.1797 37.6388 29.053L31.303 22.3918C30.9816 22.0539 30.5131 21.9219 30.074 22.0456C29.6349 22.1693 29.292 22.5299 29.1743 22.9915C29.0567 23.4531 29.1822 23.9457 29.5036 24.2836L33.6853 28.6666L23.2672 28.6666C22.5673 28.6666 22 29.2631 22 29.9989C22 30.7347 22.5673 31.3311 23.2672 31.3311L33.6853 31.3311L29.5036 35.7142C29.2637 35.9643 29.1288 36.3048 29.1288 36.66C29.1288 37.0153 29.2637 37.3558 29.5036 37.6059C29.7416 37.8581 30.0654 38 30.4033 38C30.7412 38 31.0651 37.8581 31.303 37.6059L37.6388 30.9448C37.7542 30.8181 37.8446 30.6687 37.9049 30.5051C38.0317 30.1808 38.0317 29.817 37.9049 29.4926Z" fill="#082C4E"></path>
@@ -326,25 +326,31 @@
 
                 <div>
                     <!-- FULL container with IMAGES -->
-                    <img class ="imageChange" src="https://picsum.photos/id/1/400/400">
+                    <img class="imageChange" src="https://picsum.photos/id/1/400/400">
                 </div>
 
                 <div>
                     <!-- CONTENT container -->
                     <header>
-                        <H1>
-                            <!-- These will interchange every 10s or so -->
-                            <span class="headerChange">Design Sprint.</span>
-                            <span class="headerChange">Branding.</span>
-                            <span class="headerChange">Digital Products.</span>
-                        </H1>
-                        <H1>Together.</H1>
+                        <H2>
+                            <span class="hSC">
+                                <!-- js only ref -->
+                                <!-- These will interchange every 10s or so -->
+                                <span class="ch">Design Sprint.</span>
+                                <span class="ch">Branding.</span>
+                                <span class="ch">Digital Products.</span>
+                            </span>
+                        </H2>
+                        <H2>Together.</H2>
                     </header>
 
                     <div>
-                        <p class="contentChange">Create a visual identity for your company, and an overall brand experience between you and your customers.</p>
-                        <p class="contentChange">We have a solid user-centered research and design process to create outstanding interfaces for digital products.</p>
-                        <p class="contentChange">Solve tough problems in a single week through this structured, step-by-step user experience design workshop used by the most innovative companies in the world.</p>
+                        <div class="tSC">
+                            <!-- js only ref -->
+                            <p>Create a visual identity for your company, and an overall brand experience between you and your customers.</p>
+                            <p>We have a solid user-centered research and design process to create outstanding interfaces for digital products.</p>
+                            <p>Solve tough problems in a single week through this structured, step-by-step user experience design workshop used by the most innovative companies in the world.</p>
+                        </div>
                     </div>
                     <a href="services.html">
 
@@ -368,7 +374,7 @@
         <section>
             <div>
                 <header>
-                    <h1>We have a lot to say</h1>
+                    <h2>We have a lot to say</h2>
                     <p>Articles about human centered design by members of the Indi team.</p>
                 </header> <!-- Header -->
                 <div>
@@ -450,11 +456,11 @@
     <footer>
         <!-- add padding top/btm -->
         <div>
-            <div>
+            <div class="CTA">
                 <h1>We want to hear about what you're building</h1>
                 <br>
                 <a href="contact.html">Let's chat</a>
-                <div><svg width="330" height="165" viewBox="0 0 330 165" fill="none">
+                <div class="footer-animation"><svg width="330" height="165" viewBox="0 0 330 165" fill="none">
                         <circle cx="165" r="118" stroke="#FFCC00" stroke-width="94"></circle>
                     </svg>
                     <svg width="330" height="330" viewBox="0 0 330 330" fill="none">
